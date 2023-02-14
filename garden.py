@@ -9,9 +9,6 @@ order = (
 )
 
 
-garden.clear()
-
-
 for package in order:
   for seed in package:
     garden.append(seed)
@@ -25,6 +22,8 @@ for weed in weeds:
 
 random.shuffle(garden)
 print("сад до прополки:", garden)
-print("идентификатор сада до прополки:", id(garden))
+for weed in weeds:
+    while weed in garden:
+        garden.remove(weed)
+print("сад после прополки:", garden)
 
-print(*garden)
